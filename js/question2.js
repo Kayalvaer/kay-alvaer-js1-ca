@@ -1,34 +1,31 @@
-const resultsContainer = document.querySelector(".results");
-
-const url = "https://api.rawg.io/api/games?dates=1999-01-01,1999-12-31&ordering=-rating";
-
 async function getGames() {
+    const url = "https://api.rawg.io/api/games?dates=2000-01-01,2000-12-31&ordering=-rating"
+    const resultContainer = document.querySelector(".results");
 
     try {
-        const response = await fetch(url);
-        const json = await response.json();
+        const res = await fetch(url);
+        const json = await res.json();
 
-        console.log(json);
+        const games = json.results;
 
-        resultsContainer.innerHTML = "";
+        games.forEach(function (game) {
 
-        const playGames = json.results;
+        })
 
-        playGames.forEach(function (playGame) {
-            resultsContainer.innerHTML += `<a href="details.html?id=${playGame.id}" class="card">
-                                                <h4 class="name">${playGame.name}</h4> 
-                                                <div class="image" style="background-image: url(${playGame.background_image});"></div>
-                                                <div class="details">
-                                                <h4 class="name">${playGame.released}</h4>                                                                                                                                                           
-                                                </div>
-                                            </a>`;
-        });
+        resultContainer.innerHTML = "";
 
+        games.forEach(game => {
+            resultContainer.innerHTML += `<a class="game" href="question3.html?gameId=${game.id}">
+                                            <h5>${game.name}</h5>
+                                            <div class="image" style="background-image: url(${playGame.background_image});"></div>
+                                            <p>Number of reviews: ${game.reviews_count}</p>
+                                            <p>Number of platforms: ${game.platforms.length}</p>
+                                        </a>`;
+
+        })
     } catch (error) {
-        console.log(error);
-
+        resultContainer.innerHTML = error;
     }
-
 }
 
-getGames(url);
+getGames()

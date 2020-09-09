@@ -1,27 +1,43 @@
-//var lastName = ["Moon", "Smith", "Same", "Fords"];
-//var i, name, text;
-//for (i = 0, name = lastName.length, text = ""; i < name; i++) {
-//  text += cars[i] + "<br>";
+const form = document.querySelector("form");
+const lastName = document.querySelector("#lastName");
+const lastNameError = document.querySelector("#lastNameError");
+const firstName = document.querySelector("#firstName");
+const firstNameError = document.querySelector("#firstNameError");
 
-//   document.getElementById("demo").innerHTML = text;
+function validateForm() {
+  event.preventDefault();
 
-//   if (!results[i].lastName) {
-//       continue;
-//   }
+  // validate last name
+  const lastNameValue = lastName.value;
 
-
-
-//   resultsContainer.innerHTML +=
-//       `<form id="contactForm">
-//                   <div>
-//                      <input type="text" id="lastName" placeholder="First name (minimum 5 characters)" />
-//                        <div id="lastNameError" class="error">Your last name must be at least 5 characters</div>
-//                   </div>
-//                   <div>
-//                       <button type="submit">Submit</button>
-//                  </div>
-//               </form>`
-//}
+  if (checkInputLength(lastNameValue, 5)) {
+    lastNameError.style.display = "none";
+  } else {
+    lastNameError.style.display = "block";
+  }
 
 
-//console.log(lastName);
+  // validate first name
+  const firstNameValue = firstName.value;
+
+  console.log("firstNameValue", firstNameValue)
+
+  if (checkInputLength(firstNameValue, 4)) {
+    firstNameError.style.display = "none";
+  } else {
+    firstNameError.style.display = "block";
+  }
+
+}
+
+function checkInputLength(inputValue, lengthToCheck) {
+
+
+  if (inputValue.trim().length >= lengthToCheck) {
+    return true;
+  }
+
+  return false;
+}
+
+form.addEventListener("submit", validateForm);

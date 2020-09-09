@@ -15,13 +15,31 @@ h1 {
     margin-left: 1rem;
 }
 
+.error {
+    color: red;
+    display: none;
+}
+
+a.game {
+    display: block;
+    max-width: 250px;
+    padding: 1rem;
+    margin: 1rem;
+    background: #ebebeb;
+    text-decoration: none;
+}
+
+.results {
+    display: flex;
+    flex-wrap: wrap;
+}
 
 /* with the help of contents from College lessons and the coding to complete this assignment*/
 
 
-
+/*
 /* card styling*/
-
+/*
 .card {
     display: flex;
     flex-direction: column;
@@ -63,9 +81,9 @@ h1 {
     background-position: center top;
 
 }
-
+*/
 /* Layout */
-
+/*
 html,
 body {
     height: 100%;
@@ -116,9 +134,10 @@ h1 {
 .bg-dark {
     background-color: #242424;
 }
+*/
 
 /* Info styling*/
-
+/*
 .details-title {
     margin-bottom: 0.7em;
 }
@@ -151,9 +170,9 @@ h1 {
 .hidden {
     display: none;
 }
-
+*/
 /* iu styling */
-
+/*
 .container a,
 footer a {
     color: #b31939;
@@ -189,3 +208,5 @@ footer a {
 .container a.btn-primary {
     color: #f3f3f3;
 }
+
+*/
